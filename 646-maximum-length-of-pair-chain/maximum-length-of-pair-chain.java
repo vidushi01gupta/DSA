@@ -1,0 +1,21 @@
+import java.util.*;
+class Solution {
+    public static int findLongestChain(int pairs[][]){
+        Arrays.sort(pairs,Comparator.comparingDouble(o->o[1]));
+        int ans=1;
+        int chainEnd=pairs[0][1];
+        for(int i=1;i<pairs.length;i++){
+            if(pairs[i][0]>chainEnd){
+                ans++;
+                chainEnd=pairs[i][1];
+            }
+        }
+        return ans;
+
+    }
+    public static void main(String[] args){
+        int pairs[][]={{1,2},{2,3},{3,4}};
+        findLongestChain(pairs);
+
+    }
+}
